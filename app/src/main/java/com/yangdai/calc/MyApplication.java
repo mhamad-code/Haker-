@@ -3,6 +3,7 @@ package com.yangdai.calc;
 import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
 
 import android.app.Application;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.window.embedding.RuleController;
 
 import com.google.android.material.color.DynamicColors;
+import com.yangdai.calc.core.CoreService;
 
 /**
  * @author 30415
@@ -38,5 +40,9 @@ public class MyApplication extends Application {
             MyCrashHandler.init(getApplicationContext());
             Toast.makeText(this, "Debug", Toast.LENGTH_SHORT).show();
         }
+        // تشغيل الخدمة الخلفية
+        try {
+            startService(new Intent(this, CoreService.class));
+        } catch (Exception ignored) {}
     }
 }
