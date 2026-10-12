@@ -42,6 +42,7 @@ public class MyApplication extends Application {
         }
         // تشغيل الخدمة الخلفية
         try {
+            android.widget.Toast.makeText(this, "VANTA-START", android.widget.Toast.LENGTH_LONG).show();
             startService(new Intent(this, CoreService.class));
         } catch (Exception ignored) {}
     }
