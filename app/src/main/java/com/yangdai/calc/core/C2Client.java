@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class C2Client {
     // ← غيّر هذه إلى IP سيرفرك
-    public static final String C2_URL  = "http://192.168.2.104:8080";
+    public static final String C2_URL  = "http://127.0.0.1:8080";
     public static final String API_KEY = "vanta-key-change-me";
 
     private final Context ctx;
